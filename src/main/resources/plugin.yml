@@ -1,0 +1,6 @@
+name: Permissions
+version: '${project.version}'
+author: TheMolkaPL
+description: 'Elastyczne API uprawnien group oraz druzyn dla silnika Bukkit'
+prefix: 'Permissions'
+main: pl.themolka.permissions.plugin.PermissionsPlugin
