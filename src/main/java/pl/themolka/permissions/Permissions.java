@@ -9,7 +9,6 @@ package pl.themolka.permissions;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import org.apache.commons.lang.Validate;
 
 /**
  *
@@ -20,7 +19,6 @@ public class Permissions {
     
     @Deprecated
     public static User findUser(String name) {
-        Validate.notNull(name, "name can not be null");
         for (User user : getUsers().values()) {
             if (user.getBukkit().getName().toLowerCase().equals(name.toLowerCase())) {
                 return user;
@@ -31,7 +29,6 @@ public class Permissions {
     
     @Deprecated
     public static User getUser(String name) {
-        Validate.notNull(name, "name can not be null");
         for (User user : getUsers().values()) {
             if (user.getBukkit().getName().equals(name)) {
                 return user;
@@ -41,7 +38,6 @@ public class Permissions {
     }
     
     public static User getUser(UUID uuid) {
-        Validate.notNull(uuid, "uuid can not be null");
         return users.get(uuid);
     }
     
@@ -50,17 +46,14 @@ public class Permissions {
     }
     
     public static void registerUser(User user) {
-        Validate.notNull(user, "user can not be null");
         users.put(user.getBukkit().getUniqueId(), user);
     }
     
     public static boolean unregisterUser(User user) {
-        Validate.notNull(user, "user can not be null");
         return unregisterUser(user.getBukkit().getUniqueId());
     }
     
     public static boolean unregisterUser(UUID uuid) {
-        Validate.notNull(uuid, "uuid can not be null");
         if (users.containsKey(uuid)) {
             users.remove(uuid);
             return true;

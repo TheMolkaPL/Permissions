@@ -8,7 +8,6 @@ package pl.themolka.permissions;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang.Validate;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachmentInfo;
 import pl.themolka.permissions.plugin.PermissionsPlugin;
@@ -22,7 +21,6 @@ public class User {
     private final List<Group> groups;
     
     public User(Player bukkit) {
-        Validate.notNull(bukkit, "bukkit can not be null");
         this.bukkit = bukkit;
         this.groups = new ArrayList<>();
     }
@@ -32,7 +30,6 @@ public class User {
     }
     
     public void addToGroup(Group group, boolean reload) {
-        Validate.notNull(group, "group can not be null");
         this.groups.add(group);
         
         if (reload) {
@@ -92,7 +89,6 @@ public class User {
     }
     
     public boolean removeFromGroup(Group group, boolean reload) {
-        Validate.notNull(group, "group can not be null");
         boolean result = this.groups.remove(group);
         
         if (reload) {

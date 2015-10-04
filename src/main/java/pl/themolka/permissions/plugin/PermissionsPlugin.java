@@ -20,10 +20,6 @@ public final class PermissionsPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-        
-        for (OfflinePlayer offline : this.getServer().getOperators()) {
-            offline.setOp(false);
-        }
     }
     
     public static Plugin get() {

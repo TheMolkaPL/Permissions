@@ -8,7 +8,6 @@ package pl.themolka.permissions;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang.Validate;
 
 /**
  *
@@ -20,22 +19,18 @@ public class Group {
     private String prefix;
     
     public Group(String name) {
-        Validate.notNull(name, "name can not be null");
         this.name = name.toLowerCase();
         this.permissions = new ArrayList<>();
     }
     
     public void addPermission(String permission) {
-        Validate.notNull(permission, "permission can not be null");
         this.permissions.add(permission.toLowerCase());
     }
     
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Group) {
-            if (((Group) obj).getName().equals(this.getName())) {
-                return true;
-            }
+            return ((Group) obj).getName().equals(this.getName());
         }
         return false;
     }
@@ -69,7 +64,6 @@ public class Group {
     }
     
     public boolean removePermission(String permission) {
-        Validate.notNull(permission, "permission can not be null");
         return this.permissions.remove(permission.toLowerCase());
     }
 }
